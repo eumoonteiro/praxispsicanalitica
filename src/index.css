@@ -221,6 +221,14 @@ h1, h2, h3, h4, .outfit {
   padding: 0 24px;
 }
 
+.section-padding {
+  padding: 120px 0;
+}
+
+.bg-dark {
+  background-color: var(--primary);
+}
+
 .mobile-toggle {
   display: none;
   background: none;
@@ -234,9 +242,106 @@ h1, h2, h3, h4, .outfit {
   display: flex !important;
 }
 
+/* Mobile Optimization Bundle */
 @media (max-width: 1100px) {
   .desktop-menu { display: none !important; }
   .mobile-toggle { display: block; }
-  .mobile-grid { grid-template-columns: 1fr !important; }
-  h1 { font-size: 3.2rem !important; }
+  .mobile-grid { grid-template-columns: 1fr !important; gap: 40px !important; }
+}
+
+@media (max-width: 768px) {
+  .section-padding {
+    padding: 80px 0 !important;
+  }
+  
+  .container {
+    padding: 0 20px;
+  }
+
+  h1 { 
+    font-size: 2.8rem !important; 
+    letter-spacing: -1.5px !important;
+    line-height: 1.05 !important;
+  }
+  
+  h2 {
+    font-size: 2.2rem !important;
+    letter-spacing: -1px !important;
+  }
+
+  h3 {
+    font-size: 1.8rem !important;
+  }
+
+  p {
+    font-size: 1.05rem !important;
+  }
+
+  .btn {
+    padding: 16px 28px;
+    font-size: 1rem;
+  }
+
+  /* Specific mobile button spacing */
+  .mobile-stack {
+    flex-direction: column !important;
+    width: 100%;
+  }
+
+  .mobile-stack .btn {
+    width: 100%;
+  }
+
+  /* Floating CTA Mobile refinement */
+  .floating-cta {
+    bottom: 25px !important;
+    right: 20px !important;
+    left: 20px !important;
+    padding: 18px 25px !important;
+    justify-content: center !important;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2) !important;
+    font-size: 1.05rem !important;
+  }
+  
+  /* Navigation Link refinement for mobile menu */
+  .mobile-nav-link {
+    font-size: 2.2rem !important;
+    letter-spacing: -1px;
+    transition: var(--transition);
+  }
+  
+  /* Glass card adjustment for mobile */
+  .glass {
+    padding: 30px 20px !important;
+    border-radius: 30px !important;
+  }
+}
+
+/* Scroll Smoothing */
+html {
+  scroll-behavior: smooth;
+}
+
+.page-transition-wrapper {
+  padding-top: 100px;
+  animation: fadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@media (max-width: 768px) {
+  .page-transition-wrapper {
+    padding-top: 80px;
+  }
+  
+  .price-text {
+    font-size: 3.5rem !important;
+  }
+  
+  .hero-logo {
+    height: 140px !important;
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
 }

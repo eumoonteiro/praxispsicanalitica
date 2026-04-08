@@ -24,7 +24,7 @@ const Membros = () => {
   }, []);
 
   return (
-    <div className="page-transition-wrapper" style={{ paddingTop: '100px' }}>
+    <div className="page-transition-wrapper">
       <Section id="membros-grid" title="Membros do Movimento">
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: '40px' }}>
           {membros.map((m, i) => (

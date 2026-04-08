@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react';
 import Section from '../components/Section';
 import { motion } from 'framer-motion';
-import { Calendar as CalendarIcon, Clock, ArrowRight, User, DollarSign, FileText, Download } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { Calendar as CalendarIcon, Clock, ArrowRight, User, DollarSign, FileText, Download, Info } from 'lucide-react';
 import { db } from '../firebase';
 import { collection, onSnapshot, doc } from 'firebase/firestore';
 
@@ -40,7 +41,7 @@ const Agenda = () => {
   }, []);
 
   return (
-    <div className="page-transition-wrapper" style={{ paddingTop: '100px' }}>
+    <div className="page-transition-wrapper">
       <Section id="agenda-hero" title="Agenda Práxis" subtitle="Seminários, Formações, CinePráxis e eventos científicos.">
         
         {generalNotebook && (
@@ -121,6 +122,11 @@ const Agenda = () => {
                     <a href={event.notebookUrl} target="_blank" className="btn" style={{ width: '100%', borderRadius: '100px', background: 'var(--accent-glow)', color: 'var(--secondary)' }}>
                       Download Caderno de Atividades <Download size={18} />
                     </a>
+                  )}
+                  {event.title.toLowerCase().includes('cine') && (
+                    <Link to="/cinepraxis" className="btn" style={{ width: '100%', borderRadius: '100px', background: 'var(--accent-glow)', color: 'var(--secondary)' }}>
+                      Saiba mais sobre o Cine Práxis <Info size={18} />
+                    </Link>
                   )}
                   {event.formLink ? (
                     <a href={event.formLink} target="_blank" className="btn btn-primary" style={{ width: '100%', borderRadius: '100px' }}>

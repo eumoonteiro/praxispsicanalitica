@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 
 const Clinica = () => {
   return (
-    <div className="page-transition-wrapper" style={{ paddingTop: '100px' }}>
+    <div className="page-transition-wrapper">
       <Section id="clinica-info" title="Clínica Social" subtitle="Atendimento psicanalítico ético e acessível para todos os falantes de língua portuguesa.">
         <div style={{ display: 'grid', gridTemplateColumns: '1.2fr 1fr', gap: '60px', marginBottom: '80px' }} className="mobile-grid">
           <div>

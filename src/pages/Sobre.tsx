@@ -27,7 +27,7 @@ const Sobre = () => {
   }, []);
 
   return (
-    <div className="page-transition-wrapper" style={{ paddingTop: '100px' }}>
+    <div className="page-transition-wrapper">
       <Section 
         id="historia"
         title="Nossa História" 

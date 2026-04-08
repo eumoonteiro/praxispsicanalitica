@@ -23,7 +23,7 @@ const Formacao = () => {
   ];
 
   return (
-    <div className="page-transition-wrapper" style={{ paddingTop: '100px' }}>
+    <div className="page-transition-wrapper">
       <Section 
         id="formacao-hero" 
         title="Percursos de Formação" 

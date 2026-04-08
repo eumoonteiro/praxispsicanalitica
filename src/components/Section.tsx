@@ -11,7 +11,11 @@ interface SectionProps {
 
 const Section: React.FC<SectionProps> = ({ id, title, subtitle, children, dark }) => {
   return (
-    <section id={id} style={{ padding: '120px 0', backgroundColor: dark ? 'var(--primary)' : 'transparent', color: dark ? 'white' : 'inherit' }}>
+    <section 
+      id={id} 
+      className={`section-padding ${dark ? 'bg-dark' : ''}`} 
+      style={{ color: dark ? 'white' : 'inherit' }}
+    >
       <div className="container">
         {(title || subtitle) && (
           <motion.div 

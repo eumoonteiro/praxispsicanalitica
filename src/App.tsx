@@ -13,6 +13,7 @@ import Agenda from './pages/Agenda';
 import Clinica from './pages/Clinica';
 import Membros from './pages/Membros';
 import Loja from './pages/Loja';
+import CinePraxis from './pages/CinePraxis';
 import Admin from './pages/Admin';
 
 // Helper to scroll to top on route change
@@ -53,6 +54,7 @@ function App() {
             <Route path="/membros" element={<Membros />} />
             <Route path="/loja" element={<Loja />} />
             <Route path="/admin" element={<Admin />} />
+            <Route path="/cinepraxis" element={<CinePraxis />} />
           </Routes>
         </main>
         <Footer />

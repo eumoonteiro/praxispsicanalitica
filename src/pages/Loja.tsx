@@ -26,7 +26,7 @@ const Loja = () => {
   ];
 
   return (
-    <div className="page-transition-wrapper" style={{ paddingTop: '100px' }}>
+    <div className="page-transition-wrapper">
       <Section id="loja-items" title="Loja & Publicações" subtitle="Obras produzidas por nossos membros e parceiros.">
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '40px' }}>
           <motion.div 

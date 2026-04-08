@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, ArrowUpRight } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { db } from '../firebase';
 import { doc, onSnapshot } from 'firebase/firestore';
 
@@ -34,6 +35,7 @@ const Navbar = () => {
     { name: 'Sobre', href: '/sobre' },
     { name: 'Membros', href: '/membros' },
     { name: 'Agenda', href: '/agenda' },
+    { name: 'Cine Práxis', href: '/cinepraxis' },
     { name: 'Clínica', href: '/clinica' },
     { name: 'Loja', href: '/loja' },
   ];
@@ -101,31 +103,69 @@ const Navbar = () => {
       </div>
 
       {/* Mobile Menu */}
-      <div 
-        style={{ 
-          position: 'fixed', 
-          inset: 0, 
-          background: 'white', 
-          display: isMobileMenuOpen ? 'flex' : 'none', 
-          flexDirection: 'column', 
-          alignItems: 'center', 
-          justifyContent: 'center', 
-          gap: '30px',
-          zIndex: 100
-        }}
-      >
-        {navLinks.map(link => (
-          <Link 
-            key={link.name} 
-            to={link.href} 
-            onClick={() => setIsMobileMenuOpen(false)} 
-            className="outfit"
-            style={{ fontSize: '2.4rem', fontWeight: 800, color: isActive(link.href) ? 'var(--secondary)' : 'var(--primary)' }}
+      <AnimatePresence>
+        {isMobileMenuOpen && (
+          <motion.div 
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+            style={{ 
+              position: 'fixed', 
+              inset: 0, 
+              background: 'white', 
+              display: 'flex', 
+              flexDirection: 'column', 
+              alignItems: 'center', 
+              justifyContent: 'center', 
+              gap: '20px',
+              zIndex: 100
+            }}
           >
-            {link.name}
-          </Link>
-        ))}
-      </div>
+            {navLinks.map((link, i) => (
+              <motion.div
+                key={link.name}
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: i * 0.05 }}
+              >
+                <Link 
+                  to={link.href} 
+                  onClick={() => setIsMobileMenuOpen(false)} 
+                  className="outfit mobile-nav-link"
+                  style={{ color: isActive(link.href) ? 'var(--secondary)' : 'var(--primary)', fontWeight: 800 }}
+                >
+                  {link.name}
+                </Link>
+              </motion.div>
+            ))}
+            
+            <motion.div 
+              initial={{ opacity: 0 }} 
+              animate={{ opacity: 1 }} 
+              transition={{ delay: 0.3 }}
+              style={{ marginTop: '20px', display: 'flex', flexDirection: 'column', gap: '15px', width: '80%' }}
+            >
+              <a 
+                href="https://revistapraxispsicanalitica.com.br" 
+                target="_blank" 
+                className="btn" 
+                style={{ borderRadius: '100px', background: 'var(--accent-glow)', color: 'var(--secondary)', width: '100%' }}
+              >
+                Revista <ArrowUpRight size={18} />
+              </a>
+              <a 
+                href="https://wa.me/5521964322455" 
+                target="_blank" 
+                className="btn btn-primary" 
+                style={{ borderRadius: '100px', width: '100%' }}
+              >
+                Contato <ArrowUpRight size={18} />
+              </a>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </nav>
   );
 };

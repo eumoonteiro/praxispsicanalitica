@@ -73,6 +73,7 @@ const Home = () => {
               <img 
                 src={media.logo || "/logo-full.png"} 
                 alt="Práxis Psicanalítica" 
+                className="hero-logo"
                 style={{ height: '220px', width: 'auto', marginBottom: '40px', filter: 'drop-shadow(0 20px 40px rgba(0,0,0,0.1))' }} 
               />
               <h1 className="outfit" style={{ fontSize: '5rem', fontWeight: 900, color: 'var(--primary)', lineHeight: '1', marginBottom: '24px', letterSpacing: '-4px' }}>
