@@ -108,7 +108,7 @@ const CinePraxis = () => {
 
         <div style={{ marginBottom: '80px' }}>
           <h2 className="outfit" style={{ fontSize: '2.5rem', textAlign: 'center', marginBottom: '50px' }}>Programação 2026</h2>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '30px' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 280px), 1fr))', gap: '24px' }}>
             {schedule.map((item, idx) => (
               <motion.div
                 key={item.title}
@@ -119,7 +119,7 @@ const CinePraxis = () => {
                 className="glass"
                 style={{ overflow: 'hidden', borderRadius: '32px' }}
               >
-                <div style={{ height: '450px', position: 'relative' }}>
+                <div style={{ height: 'clamp(280px, 40vw, 450px)', position: 'relative' }}>
                   <img src={item.image} alt={item.title} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                   <div style={{ position: 'absolute', top: '20px', left: '20px', background: 'var(--secondary)', color: 'white', padding: '8px 15px', borderRadius: '12px', fontWeight: 800, fontSize: '0.8rem' }}>
                     {item.month}
@@ -145,10 +145,11 @@ const CinePraxis = () => {
               <iframe 
                 src="https://docs.google.com/forms/d/e/1FAIpQLSc0CMEGG6TnwYImzYYSqu7Pqx9UJG2YpCfr87o_XMfyOToXXQ/viewform?embedded=true" 
                 width="100%" 
-                height="800" 
+                height="700" 
                 frameBorder="0" 
                 marginHeight={0} 
                 marginWidth={0}
+                style={{ minHeight: '600px' }}
               >
                 Carregando…
               </iframe>

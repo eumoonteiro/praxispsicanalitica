@@ -246,40 +246,44 @@ h1, h2, h3, h4, .outfit {
 @media (max-width: 1100px) {
   .desktop-menu { display: none !important; }
   .mobile-toggle { display: block; }
-  .mobile-grid { grid-template-columns: 1fr !important; gap: 40px !important; }
+  .mobile-grid { grid-template-columns: 1fr !important; gap: 32px !important; }
 }
 
 @media (max-width: 768px) {
   .section-padding {
-    padding: 80px 0 !important;
+    padding: 40px 0 !important;
   }
   
   .container {
-    padding: 0 20px;
+    padding: 0 16px;
   }
 
   h1 { 
-    font-size: 2.8rem !important; 
-    letter-spacing: -1.5px !important;
-    line-height: 1.05 !important;
+    font-size: 2.2rem !important; 
+    letter-spacing: -1px !important;
+    line-height: 1.1 !important;
   }
   
   h2 {
-    font-size: 2.2rem !important;
-    letter-spacing: -1px !important;
+    font-size: 1.8rem !important;
+    letter-spacing: -0.5px !important;
   }
 
   h3 {
-    font-size: 1.8rem !important;
+    font-size: 1.5rem !important;
+  }
+
+  h4 {
+    font-size: 1.2rem !important;
   }
 
   p {
-    font-size: 1.05rem !important;
+    font-size: 1rem !important;
   }
 
   .btn {
-    padding: 16px 28px;
-    font-size: 1rem;
+    padding: 14px 22px;
+    font-size: 0.95rem;
   }
 
   /* Specific mobile button spacing */
@@ -294,26 +298,45 @@ h1, h2, h3, h4, .outfit {
 
   /* Floating CTA Mobile refinement */
   .floating-cta {
-    bottom: 25px !important;
-    right: 20px !important;
-    left: 20px !important;
-    padding: 18px 25px !important;
+    bottom: 20px !important;
+    right: 16px !important;
+    left: 16px !important;
+    padding: 16px 20px !important;
     justify-content: center !important;
     box-shadow: 0 10px 30px rgba(0,0,0,0.2) !important;
-    font-size: 1.05rem !important;
+    font-size: 1rem !important;
   }
   
   /* Navigation Link refinement for mobile menu */
   .mobile-nav-link {
-    font-size: 2.2rem !important;
-    letter-spacing: -1px;
+    font-size: 1.9rem !important;
+    letter-spacing: -0.5px;
     transition: var(--transition);
   }
   
   /* Glass card adjustment for mobile */
   .glass {
-    padding: 30px 20px !important;
-    border-radius: 30px !important;
+    padding: 24px 18px !important;
+    border-radius: 24px !important;
+  }
+
+  /* Footer email overflow fix */
+  .footer-email {
+    word-break: break-all;
+    font-size: 0.85rem !important;
+  }
+
+  /* Agenda general notebook banner mobile */
+  .agenda-notebook-banner {
+    flex-direction: column !important;
+    text-align: center !important;
+    gap: 16px !important;
+  }
+
+  /* Card member mobile */
+  .card-member {
+    padding: 24px !important;
+    border-radius: 24px !important;
   }
 }
 
@@ -329,15 +352,25 @@ html {
 
 @media (max-width: 768px) {
   .page-transition-wrapper {
-    padding-top: 80px;
+    padding-top: 60px;
   }
   
   .price-text {
-    font-size: 3.5rem !important;
+    font-size: 2.5rem !important;
   }
   
   .hero-logo {
-    height: 140px !important;
+    height: 130px !important;
+  }
+
+  /* Admin mobile */
+  .admin-container {
+    padding: 100px 0 60px !important;
+  }
+
+  .admin-card {
+    padding: 20px !important;
+    border-radius: 16px !important;
   }
 }
 

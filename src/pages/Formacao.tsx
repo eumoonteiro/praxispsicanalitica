@@ -37,7 +37,7 @@ const Formacao = () => {
             style={{ display: 'flex', flexDirection: 'column', gap: '40px' }}
           >
             <div>
-              <h2 className="outfit" style={{ fontSize: '2.5rem', marginBottom: '25px', color: 'var(--secondary)' }}>
+              <h2 className="outfit" style={{ fontSize: 'clamp(1.5rem, 4vw, 2.5rem)', marginBottom: '25px', color: 'var(--secondary)' }}>
                 Formação Clínica/Inicial
               </h2>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', marginBottom: '35px' }}>
@@ -54,7 +54,7 @@ const Formacao = () => {
             </div>
 
             <div style={{ paddingTop: '40px', borderTop: '1px solid #eee' }}>
-              <h2 className="outfit" style={{ fontSize: '2.5rem', marginBottom: '25px', color: 'var(--primary)' }}>
+              <h2 className="outfit" style={{ fontSize: 'clamp(1.4rem, 4vw, 2.5rem)', marginBottom: '25px', color: 'var(--primary)' }}>
                 Formação continuada em Psicanálise
               </h2>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', marginBottom: '35px' }}>
@@ -75,7 +75,7 @@ const Formacao = () => {
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             className="glass"
-            style={{ padding: '50px', borderRadius: '40px', background: 'var(--primary)', color: 'white' }}
+            style={{ padding: 'clamp(24px, 5vw, 50px)', borderRadius: '32px', background: 'var(--primary)', color: 'white' }}
           >
             <h3 className="outfit" style={{ color: 'white', fontSize: '1.8rem', marginBottom: '30px' }}>Informações e Horários</h3>
             

@@ -48,21 +48,29 @@ const Agenda = () => {
           <motion.div 
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
-            style={{ marginBottom: '60px', textAlign: 'center' }}
+            style={{ marginBottom: '48px', textAlign: 'center' }}
           >
-            <div className="glass mobile-grid" style={{ padding: '40px', borderRadius: '40px', background: 'var(--accent-glow)', display: 'inline-flex', alignItems: 'center', gap: '20px' }}>
+            <div className="glass agenda-notebook-banner" style={{ 
+              padding: '24px 32px', 
+              borderRadius: '32px', 
+              background: 'var(--accent-glow)', 
+              display: 'inline-flex', 
+              alignItems: 'center', 
+              gap: '20px',
+              maxWidth: '100%'
+            }}>
               <div style={{ textAlign: 'left' }}>
-                <h4 className="outfit" style={{ fontSize: '1.4rem', color: 'var(--primary)' }}>Guia de Atividades</h4>
+                <h4 className="outfit" style={{ fontSize: '1.3rem', color: 'var(--primary)' }}>Guia de Atividades</h4>
                 <p style={{ fontSize: '0.9rem', color: 'var(--text-muted)' }}>Cronograma oficial e atividades permanentes do movimento.</p>
               </div>
-              <a href={generalNotebook} target="_blank" className="btn btn-primary" style={{ borderRadius: '100px', whiteSpace: 'nowrap' }}>
-                <Download size={18} /> Baixar Caderno Geral (PDF)
+              <a href={generalNotebook} target="_blank" className="btn btn-primary" style={{ borderRadius: '100px', whiteSpace: 'nowrap', flexShrink: 0 }}>
+                <Download size={18} /> Baixar PDF
               </a>
             </div>
           </motion.div>
         )}
 
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(380px, 1fr))', gap: '40px' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 340px), 1fr))', gap: '32px' }}>
           {events.length > 0 ? events.map((event, idx) => (
             <motion.div 
               key={event.id}

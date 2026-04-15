@@ -43,66 +43,69 @@ const Navbar = () => {
   const isActive = (path: string) => location.pathname === path;
 
   return (
-    <nav 
-      className={`fixed w-full z-[100] transition-all duration-500 ${isScrolled || location.pathname !== '/' ? 'glass py-4 shadow-md' : 'bg-transparent py-6'}`}
-      style={{ top: 0 }}
-    >
-      <div className="container" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-        <Link to="/" style={{ display: 'flex', alignItems: 'center', zIndex: 101 }}>
-          <img 
-            src={logoUrl} 
-            alt="Práxis" 
-            style={{ 
-              height: isScrolled ? '65px' : '85px', 
-              width: 'auto', 
-              transition: 'all 0.5s cubic-bezier(0.16, 1, 0.3, 1)',
-              filter: 'drop-shadow(0 4px 10px rgba(0,0,0,0.05))'
-            }} 
-          />
-        </Link>
+    <>
+      <nav 
+        className={`fixed w-full z-[100] transition-all duration-500 ${isScrolled || location.pathname !== '/' ? 'glass py-4 shadow-md' : 'bg-transparent py-6'}`}
+        style={{ top: 0 }}
+      >
+        <div className="container" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+          <Link to="/" style={{ display: 'flex', alignItems: 'center', zIndex: 101 }}>
+            <img 
+              src={logoUrl} 
+              alt="Práxis" 
+              style={{ 
+                height: isScrolled ? '65px' : '85px', 
+                width: 'auto', 
+                transition: 'all 0.5s cubic-bezier(0.16, 1, 0.3, 1)',
+                filter: 'drop-shadow(0 4px 10px rgba(0,0,0,0.05))'
+              }} 
+            />
+          </Link>
 
-        {/* Desktop Menu */}
-        <ul style={{ display: 'flex', gap: '8px', alignItems: 'center' }} className="desktop-menu">
-          {navLinks.map(link => (
-            <li key={link.name} style={{ display: 'block' }}>
-              <Link 
-                to={link.href} 
-                className={`nav-link ${isActive(link.href) ? 'active' : ''}`}
+          {/* Desktop Menu */}
+          <ul style={{ display: 'flex', gap: '8px', alignItems: 'center' }} className="desktop-menu">
+            {navLinks.map(link => (
+              <li key={link.name} style={{ display: 'block' }}>
+                <Link 
+                  to={link.href} 
+                  className={`nav-link ${isActive(link.href) ? 'active' : ''}`}
+                >
+                  {link.name}
+                </Link>
+              </li>
+            ))}
+            <li style={{ marginLeft: '12px', display: 'flex', gap: '8px' }}>
+              <a 
+                href="https://revistapraxispsicanalitica.com.br" 
+                target="_blank" 
+                className="btn" 
+                style={{ padding: '12px 20px', borderRadius: '100px', fontSize: '0.9rem', background: 'var(--accent-glow)', color: 'var(--secondary)' }}
               >
-                {link.name}
-              </Link>
+                Revista <ArrowUpRight size={14} />
+              </a>
+              <a 
+                href="https://wa.me/5521964322455" 
+                target="_blank" 
+                className="btn btn-primary" 
+                style={{ padding: '12px 24px', borderRadius: '100px', fontSize: '0.9rem' }}
+              >
+                Contato <ArrowUpRight size={14} />
+              </a>
             </li>
-          ))}
-          <li style={{ marginLeft: '12px', display: 'flex', gap: '8px' }}>
-            <a 
-              href="https://revistapraxispsicanalitica.com.br" 
-              target="_blank" 
-              className="btn" 
-              style={{ padding: '12px 20px', borderRadius: '100px', fontSize: '0.9rem', background: 'var(--accent-glow)', color: 'var(--secondary)' }}
-            >
-              Revista <ArrowUpRight size={14} />
-            </a>
-            <a 
-              href="https://wa.me/5521964322455" 
-              target="_blank" 
-              className="btn btn-primary" 
-              style={{ padding: '12px 24px', borderRadius: '100px', fontSize: '0.9rem' }}
-            >
-              Contato <ArrowUpRight size={14} />
-            </a>
-          </li>
-        </ul>
+          </ul>
 
-        {/* Mobile Toggle */}
-        <button 
-          className="mobile-toggle"
-          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-        >
-          {isMobileMenuOpen ? <X size={36} /> : <Menu size={36} />}
-        </button>
-      </div>
+          {/* Mobile Toggle */}
+          <button 
+            className="mobile-toggle"
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            style={{ position: 'relative', zIndex: 9999 }}
+          >
+            {isMobileMenuOpen ? <X size={36} /> : <Menu size={36} />}
+          </button>
+        </div>
+      </nav>
 
-      {/* Mobile Menu */}
+      {/* Mobile Menu — outside <nav> to avoid backdrop-filter stacking context */}
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div 
@@ -119,7 +122,7 @@ const Navbar = () => {
               alignItems: 'center', 
               justifyContent: 'center', 
               gap: '20px',
-              zIndex: 100
+              zIndex: 9998
             }}
           >
             {navLinks.map((link, i) => (
@@ -166,7 +169,7 @@ const Navbar = () => {
           </motion.div>
         )}
       </AnimatePresence>
-    </nav>
+    </>
   );
 };
 

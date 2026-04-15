@@ -52,9 +52,8 @@ const Home = () => {
 
   return (
     <div className="page-transition-wrapper">
-      {/* Hero Section */}
-      <section style={{ 
-        height: '95vh', 
+    <section style={{ 
+        minHeight: '95vh', 
         display: 'flex', 
         alignItems: 'center', 
         justifyContent: 'center', 
@@ -69,26 +68,26 @@ const Home = () => {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1, ease: 'easeOut' }}
           >
-            <div style={{ marginBottom: '60px' }}>
+            <div style={{ marginBottom: '40px' }}>
               <img 
                 src={media.logo || "/logo-full.png"} 
                 alt="Práxis Psicanalítica" 
                 className="hero-logo"
-                style={{ height: '220px', width: 'auto', marginBottom: '40px', filter: 'drop-shadow(0 20px 40px rgba(0,0,0,0.1))' }} 
+                style={{ height: '220px', width: 'auto', marginBottom: '32px', filter: 'drop-shadow(0 20px 40px rgba(0,0,0,0.1))' }} 
               />
-              <h1 className="outfit" style={{ fontSize: '5rem', fontWeight: 900, color: 'var(--primary)', lineHeight: '1', marginBottom: '24px', letterSpacing: '-4px' }}>
+              <h1 className="outfit" style={{ fontSize: 'clamp(2rem, 8vw, 5rem)', fontWeight: 900, color: 'var(--primary)', lineHeight: '1.05', marginBottom: '20px', letterSpacing: 'clamp(-1px, -0.5vw, -4px)' }}>
                 Movimento de <span style={{ color: 'var(--secondary)' }}>Psicanálise</span>
               </h1>
-              <p style={{ fontSize: '1.4rem', color: 'var(--text-muted)', maxWidth: '700px', margin: '0 auto 48px', lineHeight: '1.6' }}>
+              <p style={{ fontSize: 'clamp(1rem, 3vw, 1.4rem)', color: 'var(--text-muted)', maxWidth: '700px', margin: '0 auto 40px', lineHeight: '1.6' }}>
                 Um espaço de interlocução para analistas guiados pelo ensino, transmissão e pesquisa.
               </p>
             </div>
 
-            <div style={{ display: 'flex', gap: '20px', justifyContent: 'center' }} className="mobile-grid">
-              <Link to="/agenda" className="btn btn-primary" style={{ padding: '18px 40px', borderRadius: '100px', fontSize: '1.1rem' }}>
+            <div style={{ display: 'flex', gap: '16px', justifyContent: 'center', flexWrap: 'wrap' }}>
+              <Link to="/agenda" className="btn btn-primary" style={{ padding: '16px 32px', borderRadius: '100px', fontSize: 'clamp(0.9rem, 2.5vw, 1.1rem)' }}>
                 Agenda de Eventos <ArrowRight size={20} />
               </Link>
-              <Link to="/sobre" className="btn" style={{ padding: '18px 40px', borderRadius: '100px', fontSize: '1.1rem', background: 'var(--accent-glow)', color: 'var(--secondary)' }}>
+              <Link to="/sobre" className="btn" style={{ padding: '16px 32px', borderRadius: '100px', fontSize: 'clamp(0.9rem, 2.5vw, 1.1rem)', background: 'var(--accent-glow)', color: 'var(--secondary)' }}>
                 Sobre o Movimento
               </Link>
             </div>
@@ -98,13 +97,13 @@ const Home = () => {
 
       {/* Hub Section */}
       <Section id="hub" title="Áreas de Atuação" subtitle="Conheça os pilares que sustentam a transmissão da Psicanálise em nosso movimento.">
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '30px' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 300px), 1fr))', gap: '24px' }}>
           {hubCards.map((card, idx) => (
             <motion.div
               key={idx}
               whileHover={{ y: -12 }}
               className="glass"
-              style={{ padding: '60px 40px', borderRadius: '40px', textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '24px' }}
+              style={{ padding: '48px 32px', borderRadius: '40px', textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '20px' }}
             >
               <div style={{ width: '80px', height: '80px', borderRadius: '24px', background: 'var(--accent-glow)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--secondary)' }}>
                 <card.icon size={36} />
@@ -125,8 +124,8 @@ const Home = () => {
       {/* Revista Highlight Section */}
       <Section id="revista-destaque" title="Revista Práxis" subtitle="Nossa produção científica em interlocução com a clínica e a cultura.">
         <div className="glass" style={{ 
-          padding: '80px', 
-          borderRadius: '60px', 
+          padding: 'clamp(32px, 5vw, 80px)', 
+          borderRadius: '40px', 
           textAlign: 'center', 
           background: 'linear-gradient(135deg, var(--primary) 0%, #1e293b 100%)', 
           color: 'white',

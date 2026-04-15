@@ -6,7 +6,7 @@ const Footer = () => {
   return (
     <footer style={{ background: 'var(--primary)', color: 'white', padding: '100px 0 40px' }}>
       <div className="container">
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '80px', marginBottom: '80px' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 220px), 1fr))', gap: '48px', marginBottom: '60px' }}>
           <div>
             <div style={{ display: 'flex', alignItems: 'center', gap: '15px', marginBottom: '30px' }}>
               <img src="/logo-icon-light.png" alt="Logo" style={{ height: '50px' }} />
@@ -34,8 +34,9 @@ const Footer = () => {
               <a href="https://wa.me/5521964322455" target="_blank" style={{ display: 'flex', alignItems: 'center', gap: '12px', color: 'white', opacity: 0.6 }}>
                 <Phone size={20} color="var(--accent)" /> (21) 96432-2455
               </a>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '12px', color: 'white', opacity: 0.6 }}>
-                <Mail size={20} color="var(--accent)" /> comunicacao@praxispsicanalitica.com.br
+              <div style={{ display: 'flex', alignItems: 'flex-start', gap: '12px', color: 'white', opacity: 0.6 }}>
+                <Mail size={20} color="var(--accent)" style={{ flexShrink: 0, marginTop: '2px' }} />
+                <span className="footer-email">comunicacao@praxispsicanalitica.com.br</span>
               </div>
               <div style={{ display: 'flex', gap: '15px', marginTop: '10px' }}>
                 <a href="https://www.instagram.com/praxispsicanalitica" target="_blank" style={{ width: '40px', height: '40px', borderRadius: '10px', background: 'rgba(255,255,255,0.05)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'white' }}>
